@@ -1,6 +1,7 @@
 import json
 import io
 import pickle
+import mysql.connector
 
 import boto3
 from yt_dlp import YoutubeDL
@@ -19,3 +20,11 @@ def handler(event, context):
 		'statusCode': 200,
 		'body': json.dumps('Video saved.')
 	}
+
+mydb = mysql.connector.connect(
+  host="localhost",
+  user="yourusername",
+  password="yourpassword"
+)
+
+print(mydb) 
